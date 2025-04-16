@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Play SWF Files</title>
+</head>
+<body>
+    <h1>Play Ascending Number SWF Files</h1>
+    <script>
+        const totalFiles = 3634; // Total number of SWF files
+        const container = document.createElement('div'); // Create a container for objects
+        for (let i = 1; i <= totalFiles; i++) {
+            const objectElement = document.createElement('object');
+            objectElement.width = 800;
+            objectElement.height = 600;
+            objectElement.data = `${i}.swf`; // Assign file name dynamically
+            objectElement.type = 'application/x-shockwave-flash';
+
+            // Add param elements
+            const paramMovie = document.createElement('param');
+            paramMovie.name = 'movie';
+            paramMovie.value = `${i}.swf`;
+            objectElement.appendChild(paramMovie);
+
+            const paramQuality = document.createElement('param');
+            paramQuality.name = 'quality';
+            paramQuality.value = 'high';
+            objectElement.appendChild(paramQuality);
+
+            container.appendChild(objectElement); // Append each SWF object
+        }
+        document.body.appendChild(container); // Add container to body
+    </script>
+</body>
+</html>
